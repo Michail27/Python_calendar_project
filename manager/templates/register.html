@@ -1,0 +1,13 @@
+{% extends 'main_template.html' %}
+
+{% block register %}
+{% for message in messages %}
+    <div class="message {{ message.tags }}">
+    {{ message }}
+{% endfor %}
+<form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Register">
+</form>
+{% endblock %}
